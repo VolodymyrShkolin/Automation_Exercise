@@ -20,4 +20,7 @@ public class ProductsPage extends BasePage {
 
     @FindBy(xpath = "//div[@class='modal-body'] //a[@href='/view_cart']")
     public WebElement viewCartLink;
+
+    @FindBy(xpath = "//a[contains(@href, '/product_details')]")
+    public List<WebElement> viewProductHref;
 }

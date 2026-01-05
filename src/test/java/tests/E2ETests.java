@@ -26,6 +26,6 @@ public class E2ETests extends BaseTest {
     @DisplayName("Add review on product")
     @Test
     public void reviewOnProduct(){
-
+        steps.reviewSteps().addReview();
     }
 }

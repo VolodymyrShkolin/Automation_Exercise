@@ -3,6 +3,7 @@ package core;
 import org.openqa.selenium.WebDriver;
 import steps.LoginSteps;
 import steps.PurchaseSteps;
+import steps.ReviewSteps;
 
 public final class StepFactory {
     WebDriver driver;
@@ -15,6 +16,14 @@ public final class StepFactory {
 
     private LoginSteps loginSteps;
     private PurchaseSteps purchaseSteps;
+    private ReviewSteps reviewSteps;
+
+    public ReviewSteps reviewSteps(){
+        if(reviewSteps == null){
+            reviewSteps = new ReviewSteps(driver, pages, this);
+        }
+        return reviewSteps;
+    }
 
     public LoginSteps loginSteps(){
         if(loginSteps == null){

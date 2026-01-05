@@ -17,6 +17,7 @@ public final class PageProvider {
     private CheckoutPage checkoutPage;
     private PaymentPage paymentPage;
     private OrderConfirmationPage orderConfirmationPage;
+    private ProductPage productPage;
 
 
     public LoginPage loginPage(){
@@ -24,6 +25,13 @@ public final class PageProvider {
             loginPage = new LoginPage(driver);
         }
         return loginPage;
+    }
+
+    public ProductPage productPage(){
+        if(productPage == null){
+            productPage = new ProductPage(driver);
+        }
+        return productPage;
     }
 
     public MainPage mainPage(){
