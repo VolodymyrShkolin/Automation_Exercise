@@ -16,7 +16,11 @@ public class E2ETests extends BaseTest {
     @DisplayName("Place Order: Login before Checkout")
     @Test
     public void placeOrder(){
-
+        var productName = steps.purchaseSteps().selectProduct();
+        steps.purchaseSteps().checkout(productName);
+        steps.purchaseSteps().orderProduct();
+        steps.purchaseSteps().payOrder();
+        steps.purchaseSteps().orderConfirmation();
     }
 
     @DisplayName("Add review on product")

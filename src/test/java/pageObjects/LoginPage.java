@@ -10,9 +10,6 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    @FindBy(xpath = "//a[@href='/login']")
-    public WebElement loginHref;
-
     @FindBy(xpath = "//input[@data-qa='login-email']")
     public WebElement emailField;
 
@@ -24,9 +21,6 @@ public class LoginPage extends BasePage {
 
     @FindBy(xpath = "//li/a/b")
     public WebElement userName;
-
-    @FindBy(xpath = "//button[contains(@class, 'fc-cta-consent')]")
-    public WebElement acceptCaptchaBtn;
 
     @FindBy(xpath = "//p[@style='color: red;']")
     public WebElement loginAssertion;

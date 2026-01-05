@@ -16,7 +16,7 @@ public class ProductsPage extends BasePage {
     public List<WebElement> addToCartBtn;
 
     @FindBy(xpath = "//div[@class='single-products'] //p")
-    public WebElement productName;
+    public List<WebElement> productName;
 
     @FindBy(xpath = "//div[@class='modal-body'] //a[@href='/view_cart']")
     public WebElement viewCartLink;

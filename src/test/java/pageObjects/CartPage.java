@@ -16,5 +16,5 @@ public class CartPage extends BasePage {
     public List<WebElement> cartDescription;
 
     @FindBy(xpath = "//a[@class='btn btn-default check_out']")
-    public List<WebElement> cartCheckoutBtn;
+    public WebElement cartCheckoutBtn;
 }

@@ -1,7 +1,7 @@
 package core;
 
 import org.openqa.selenium.WebDriver;
-import pageObjects.LoginPage;
+import pageObjects.*;
 
 public final class PageProvider {
     WebDriver driver;
@@ -11,11 +11,60 @@ public final class PageProvider {
     }
 
     private LoginPage loginPage;
+    private MainPage mainPage;
+    private ProductsPage productsPage;
+    private CartPage cartPage;
+    private CheckoutPage checkoutPage;
+    private PaymentPage paymentPage;
+    private OrderConfirmationPage orderConfirmationPage;
+
 
     public LoginPage loginPage(){
         if(loginPage == null){
             loginPage = new LoginPage(driver);
         }
         return loginPage;
+    }
+
+    public MainPage mainPage(){
+        if(mainPage == null){
+            mainPage = new MainPage(driver);
+        }
+        return mainPage;
+    }
+
+    public ProductsPage productsPage(){
+        if(productsPage == null){
+            productsPage = new ProductsPage(driver);
+        }
+        return productsPage;
+    }
+
+    public CartPage cartPage(){
+        if(cartPage == null){
+            cartPage = new CartPage(driver);
+        }
+        return cartPage;
+    }
+
+    public CheckoutPage checkoutPage(){
+        if(checkoutPage == null){
+            checkoutPage = new CheckoutPage(driver);
+        }
+        return checkoutPage;
+    }
+
+    public PaymentPage paymentPage(){
+        if(paymentPage == null){
+            paymentPage = new PaymentPage(driver);
+        }
+        return paymentPage;
+    }
+
+    public OrderConfirmationPage orderConfirmationPage(){
+        if(orderConfirmationPage == null){
+            orderConfirmationPage = new OrderConfirmationPage(driver);
+        }
+        return orderConfirmationPage;
     }
 }

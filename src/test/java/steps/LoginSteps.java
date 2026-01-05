@@ -16,11 +16,11 @@ public class LoginSteps extends BaseStep {
 
 
     public void login(String email, String password){
-        pages.loginPage().acceptCaptchaBtn.click();
-        pages.loginPage().loginHref.click();
+        click(pages.mainPage().acceptCaptchaBtn);
+        click(pages.mainPage().loginHref);
         pages.loginPage().emailField.sendKeys(email);
         pages.loginPage().passwordField.sendKeys(password);
-        pages.loginPage().loginBtn.click();
+        click(pages.loginPage().loginBtn);
     }
 
     public void validLoginData(String email, String password, String name){
