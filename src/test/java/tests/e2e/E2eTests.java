@@ -1,12 +1,14 @@
-package tests;
+package tests.e2e;
 
 import core.BaseTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @DisplayName("E2E tests")
-public class E2ETests extends BaseTest {
+public class E2eTests extends BaseTest {
 
     @BeforeEach
     public void beforeEach(){
@@ -27,5 +29,11 @@ public class E2ETests extends BaseTest {
     @Test
     public void reviewOnProduct(){
         steps.reviewSteps().addReview();
+    }
+
+    @DisplayName("sd")
+    @Test
+    public void sd(){
+        assertEquals(1, 2);
     }
 }

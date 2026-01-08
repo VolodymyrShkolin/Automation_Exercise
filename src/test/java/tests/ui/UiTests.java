@@ -1,11 +1,11 @@
-package tests;
+package tests.ui;
 
 import core.BaseTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 @DisplayName("UI tests")
-public class UITests extends BaseTest {
+public class UiTests extends BaseTest {
 
     @DisplayName("Login User with correct email and password")
     @Test

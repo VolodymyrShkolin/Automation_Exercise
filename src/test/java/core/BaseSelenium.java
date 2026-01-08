@@ -1,5 +1,6 @@
 package core;
 
+import io.restassured.RestAssured;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;

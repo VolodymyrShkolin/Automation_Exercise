@@ -1,6 +1,7 @@
 package core;
 
 import org.openqa.selenium.WebDriver;
+import steps.APISteps;
 import steps.LoginSteps;
 import steps.PurchaseSteps;
 import steps.ReviewSteps;
@@ -17,6 +18,14 @@ public final class StepFactory {
     private LoginSteps loginSteps;
     private PurchaseSteps purchaseSteps;
     private ReviewSteps reviewSteps;
+    private APISteps apiSteps;
+
+    public APISteps apiSteps(){
+        if(apiSteps == null){
+            apiSteps = new APISteps(driver, pages, this);
+        }
+        return apiSteps;
+    }
 
     public ReviewSteps reviewSteps(){
         if(reviewSteps == null){
