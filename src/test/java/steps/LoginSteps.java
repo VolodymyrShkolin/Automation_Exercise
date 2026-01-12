@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import core.PageProvider;
 import core.StepFactory;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 
 public class LoginSteps extends BaseStep {
@@ -14,23 +15,32 @@ public class LoginSteps extends BaseStep {
         super(driver, pages, steps);
     }
 
-
+    @Step("Login user")
     public void login(String email, String password){
-        click(pages.mainPage().acceptCaptchaBtn);
+        removeCaptcha();
         click(pages.mainPage().loginHref);
         pages.loginPage().emailField.sendKeys(email);
         pages.loginPage().passwordField.sendKeys(password);
         click(pages.loginPage().loginBtn);
     }
 
+    @Step("Valid login data")
     public void validLoginData(String email, String password, String name){
         login(email, password);
         assertEquals(pages.loginPage().userName.getText(), name);
     }
 
+    @Step("Invalid password")
     public void invalidPassword(String email, String password){
         login(email, password);
         assertEquals(Messages.loginAssertion, pages.loginPage().loginAssertion.getText());
+    }
+
+    @Step("Remove captcha")
+    public void removeCaptcha(){
+        if(isVisible(pages.mainPage().acceptCaptchaBtn)){
+            click(pages.mainPage().acceptCaptchaBtn);
+        }
     }
 
 }

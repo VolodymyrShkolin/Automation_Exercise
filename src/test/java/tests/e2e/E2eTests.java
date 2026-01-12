@@ -5,7 +5,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DisplayName("E2E tests")
 public class E2eTests extends BaseTest {
@@ -31,9 +30,4 @@ public class E2eTests extends BaseTest {
         steps.reviewSteps().addReview();
     }
 
-    @DisplayName("sd")
-    @Test
-    public void sd(){
-        assertEquals(1, 2);
-    }
 }

@@ -4,6 +4,7 @@ import constants.Messages;
 import core.BaseStep;
 import core.PageProvider;
 import core.StepFactory;
+import io.qameta.allure.Step;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
@@ -17,6 +18,7 @@ public class APISteps extends BaseStep {
         super(driver, pages, steps);
     }
 
+    @Step("Post to all product")
     public void postToAllProduct(String url){
         JsonPath jsonPath = RestAssured.given()
                 .filter(new AllureRestAssured())
@@ -29,6 +31,7 @@ public class APISteps extends BaseStep {
         assertEquals(Messages.statusCode405, jsonPath.getString("message"));
     }
 
+    @Step("Get user email")
     public void getUserEmail(String url, String email, String userName){
         JsonPath jsonPath = RestAssured.given()
                 .filter(new AllureRestAssured())

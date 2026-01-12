@@ -5,6 +5,7 @@ import constants.Messages;
 import core.BaseStep;
 import core.PageProvider;
 import core.StepFactory;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -16,6 +17,7 @@ public class ReviewSteps extends BaseStep {
         super(driver, pages, steps);
     }
 
+    @Step("Add a review")
     public void addReview(){
         click(pages.productsPage().viewProductHref.getFirst());
         pages.productPage().nameField.sendKeys(CardData.NAME_ON_CARD);

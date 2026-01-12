@@ -3,15 +3,19 @@ package core;
 import core.data.configurations.ConfigProvider;
 import core.driver.BrowserType;
 import core.driver.WebDriverFactory;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import core.extensions.MonitorRule;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
-
+@ExtendWith(MonitorRule.class)
 public abstract class BaseTest implements ConfigProvider {
     protected WebDriver driver;
     protected PageProvider pages;
     protected StepFactory steps;
+    public static ThreadLocal<byte[]> screenshot = new ThreadLocal<>();
 
 
     @BeforeEach
@@ -26,6 +30,7 @@ public abstract class BaseTest implements ConfigProvider {
     @AfterEach
     public void tearDown(){
         if(driver != null){
+            screenshot.set(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES));
             driver.quit();
         }
     }

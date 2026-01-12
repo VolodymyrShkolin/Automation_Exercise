@@ -1,5 +1,6 @@
 package core.driver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -24,10 +25,11 @@ public final class WebDriverFactory {
 
 
     public static WebDriver createChromeDriver(){
+        //WebDriverManager.chromedriver().setup();
         ChromeOptions options = createChromeOptions();
 
         WebDriver driver = new ChromeDriver(options);
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(45));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(7));
         driver.manage().window().maximize();
 
@@ -41,6 +43,9 @@ public final class WebDriverFactory {
         options.addArguments("--disable-infobars");
         options.addArguments("--disable-notifications");
         options.addArguments("--start-maximized");
+        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
 
         Map<String, Object> prefs = new HashMap<>();
 
@@ -52,6 +57,9 @@ public final class WebDriverFactory {
         if(isHeadless()){
             options.addArguments("--headless=new");
             options.addArguments("--window-size=1920,1080");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--no-sandbox");
         }
 
         return options;

@@ -18,6 +18,12 @@
 
     <dependencies>
         <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>6.3.2</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.39.0</version>
@@ -88,7 +94,10 @@
                     </argLine>
 
                     <forkCount>2</forkCount>
+                    <reuseForks>false</reuseForks>
                     <rerunFailingTestsCount>1</rerunFailingTestsCount>
+<!--                    <parallel>class</parallel>-->
+<!--                    <threadCount>2</threadCount>-->
 
                     <systemPropertyVariables>
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>

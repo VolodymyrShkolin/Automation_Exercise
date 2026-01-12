@@ -5,6 +5,7 @@ import constants.Messages;
 import core.BaseStep;
 import core.PageProvider;
 import core.StepFactory;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -15,6 +16,7 @@ public class PurchaseSteps extends BaseStep {
         super(driver, pages, steps);
     }
 
+    @Step("Select product")
     public String selectProduct(){
         click(pages.mainPage().productHref);
         String productName = pages.productsPage().productName.getFirst().getText();
@@ -23,15 +25,18 @@ public class PurchaseSteps extends BaseStep {
         return productName;
     }
 
+    @Step("Checkout product")
     public void checkout(String productName){
         assertEquals(productName, pages.cartPage().cartDescription.getFirst().getText());
         click(pages.cartPage().cartCheckoutBtn);
     }
 
+    @Step("Order the product")
     public void orderProduct(){
         click(pages.checkoutPage().orderBtn);
     }
 
+    @Step("Pay the order")
     public void payOrder(){
         pages.paymentPage().nameOnCardField.sendKeys(CardData.NAME_ON_CARD);
         pages.paymentPage().cardNumberField.sendKeys(CardData.CARD_NUMBER);
@@ -41,6 +46,7 @@ public class PurchaseSteps extends BaseStep {
         click(pages.paymentPage().payBtn);
     }
 
+    @Step("Confirm the order")
     public void orderConfirmation(){
         assertEquals(Messages.successfulOrder, pages.orderConfirmationPage().orderPlace.getText());
         click(pages.orderConfirmationPage().continueBtn);
